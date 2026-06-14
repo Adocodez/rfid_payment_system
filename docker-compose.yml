@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  postgres_db:
+    image: postgres:16-alpine
+    container_name: rfid_postgres
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: mysecretpassword   # You can change this password if you want
+      POSTGRES_DB: rfid_system
+    ports:
+      - "5432:5432"
+    volumes:
+      - rfid_db_data:/var/lib/postgresql/data
+
+volumes:
+  rfid_db_data:
