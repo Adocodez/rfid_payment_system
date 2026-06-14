@@ -1,0 +1,13 @@
+CREATE TABLE IF NOT EXISTS users (
+    uid VARCHAR(50) PRIMARY KEY,
+    name TEXT NOT NULL,
+    balance NUMERIC(10,2) DEFAULT 0
+);
+
+CREATE TABLE IF NOT EXISTS transactions (
+    id SERIAL PRIMARY KEY,
+    uid VARCHAR(50) ,
+    type VARCHAR(20),
+    amount NUMERIC(10,2),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
